@@ -26,13 +26,13 @@ const TaskItems: React.FC<Props> = (props) => {
         <List>
             {props.tasks.map((task) => {
                 return (
-                    <ListItem button onClick={() => onClickListItem(task)}>
+                    <ListItem key={task.id} button onClick={() => onClickListItem(task)}>
                         <ListItemText primary={
                             <Typography
                                 style={{textDecoration: task.isDone ? "line-through" : "none"}}>{task.title}</Typography>}
                                       secondary={
                                           <Typography
-                                              style={{textDecoration: task.isDone ? "line-through" : "none"}}>task.description</Typography>}/>
+                                              style={{textDecoration: task.isDone ? "line-through" : "none"}}>{task.description}</Typography>}/>
                         <ListItemSecondaryAction>
                             <IconButton edge="end" aria-label="delete" onClick={() => onClickDeleteItem(task)}>
                                 <DeleteIcon/>
