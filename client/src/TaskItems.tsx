@@ -28,10 +28,10 @@ const TaskItems: React.FC<Props> = (props) => {
                 return (
                     <ListItem key={task.id} button onClick={() => onClickListItem(task)}>
                         <ListItemText primary={
-                            <Typography
+                            <Typography component="h3" variant="h5"
                                 style={{textDecoration: task.isDone ? "line-through" : "none"}}>{task.title}</Typography>}
                                       secondary={
-                                          <Typography
+                                          <Typography color="textSecondary"
                                               style={{textDecoration: task.isDone ? "line-through" : "none"}}>{task.description}</Typography>}/>
                         <ListItemSecondaryAction>
                             <IconButton edge="end" aria-label="delete" onClick={() => onClickDeleteItem(task)}>
