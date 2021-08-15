@@ -8,24 +8,8 @@ The development language is Typescript.
 SpringBoot is used as the backend.
 The development language is Java.
 
-It requires the creation of a postgresql DB to operate.
-Please create todo_db and todo_db_test.
-
 ## Setup
 
-1. Create db
-
-    ```shell
-    createdb todo_db
-    createdb todo_db_test
-    ```
-
-1. Set environment variables
-
-    ```shell
-   export DB_USER=(DB_USER)
-   export DB_PASSWORD=(DB_PASSWORD)
-    ```
 1. Launch App
 
    client app
