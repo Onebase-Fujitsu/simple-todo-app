@@ -32,7 +32,7 @@ class TodoAppRepositoryImpl implements TodoAppRepository {
                     (int) task.get("id"),
                     (String) task.get("title"),
                     (String) task.get("description"),
-                    (int)task.get("is_done") == 1));
+                    (boolean)task.get("is_done")));
         }
         return tasks;
     }
