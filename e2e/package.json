@@ -1,0 +1,14 @@
+{
+  "name": "e2e-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test/test.js",
+  "scripts": {
+    "test": "./node_modules/.bin/testcafe 'chrome' ./test"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "testcafe": "^1.15.2"
+  }
+}
