@@ -2,18 +2,24 @@ package com.example.todoApp.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.time.OffsetDateTime;
+
 public class Task {
     public int id;
     public String title;
     public String description;
     @JsonProperty("isDone")
     public boolean isDone;
+    public OffsetDateTime createdAt;
+    public OffsetDateTime updatedAt;
 
-    public Task(int id, String title, String description, boolean isDone) {
+    public Task(int id, String title, String description, boolean isDone, OffsetDateTime createdAt, OffsetDateTime updatedAt) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.isDone = isDone;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public int getId() {
@@ -46,5 +52,21 @@ public class Task {
 
     public void setDone(boolean done) {
         isDone = done;
+    }
+
+    public OffsetDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(OffsetDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public OffsetDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(OffsetDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

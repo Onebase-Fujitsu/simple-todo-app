@@ -3,6 +3,7 @@ package com.example.todoApp.controller;
 import com.example.todoApp.model.NewTask;
 import com.example.todoApp.model.Task;
 import com.example.todoApp.service.TodoAppService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,11 @@ public class TodoAppController {
     TodoAppService todoAppService;
 
     @GetMapping("/tasks")
+    @ApiOperation(
+            value = "get all tasks",
+            produces = "application/json",
+            consumes = "application/json"
+    )
     public List<Task> getAllTasks() {
         try {
             return todoAppService.getAllTasks();
@@ -27,6 +33,11 @@ public class TodoAppController {
 
     @PostMapping("/tasks")
     @ResponseStatus(HttpStatus.CREATED)
+    @ApiOperation(
+            value = "create new task",
+            produces = "application/json",
+            consumes = "application/json"
+    )
     public void createTask(@RequestBody NewTask newTask) {
         try {
             todoAppService.createNewTask(newTask);
@@ -37,6 +48,11 @@ public class TodoAppController {
 
     @PutMapping("/tasks/{id}/finish")
     @ResponseStatus(HttpStatus.OK)
+    @ApiOperation(
+            value = "finish task",
+            produces = "application/json",
+            consumes = "application/json"
+    )
     public void finishTask(@PathVariable("id") int taskId) {
         try {
             todoAppService.finishTask(taskId);
@@ -47,6 +63,11 @@ public class TodoAppController {
 
     @PutMapping("/tasks/{id}/revert")
     @ResponseStatus(HttpStatus.OK)
+    @ApiOperation(
+            value = "revert task",
+            produces = "application/json",
+            consumes = "application/json"
+    )
     public void revertTask(@PathVariable("id") int taskId) {
         try {
             todoAppService.revertTask(taskId);
@@ -57,6 +78,11 @@ public class TodoAppController {
 
     @DeleteMapping("/tasks/{id}")
     @ResponseStatus(HttpStatus.OK)
+    @ApiOperation(
+            value = "delete task",
+            produces = "application/json",
+            consumes = "application/json"
+    )
     public void deleteTask(@PathVariable("id") int taskId) {
         try {
             todoAppService.deleteTask(taskId);

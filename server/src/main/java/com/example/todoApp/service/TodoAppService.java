@@ -21,6 +21,9 @@ class TodoAppServiceImpl implements TodoAppService {
     @Autowired
     TodoAppRepository todoAppRepository;
 
+    @Autowired
+    ClockService clockService;
+
     @Override
     public List<Task> getAllTasks() {
         return todoAppRepository.getAllTasks();
@@ -28,21 +31,21 @@ class TodoAppServiceImpl implements TodoAppService {
 
     @Override
     public void createNewTask(NewTask newTask) {
-        todoAppRepository.createNewTask(newTask);
+        todoAppRepository.createNewTask(newTask, clockService.now());
     }
 
     @Override
     public void finishTask(int taskId) {
-        todoAppRepository.finishTask(taskId);
+        todoAppRepository.finishTask(taskId, clockService.now());
     }
 
     @Override
     public void revertTask(int taskId) {
-        todoAppRepository.revertTask(taskId);
+        todoAppRepository.revertTask(taskId, clockService.now());
     }
 
     @Override
     public void deleteTask(int taskId) {
-        todoAppRepository.deleteTask(taskId);
+        todoAppRepository.deleteTask(taskId, clockService.now());
     }
 }
