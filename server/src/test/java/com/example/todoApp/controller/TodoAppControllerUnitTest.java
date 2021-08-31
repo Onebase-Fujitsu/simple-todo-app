@@ -1,7 +1,6 @@
 package com.example.todoApp.controller;
 import com.example.todoApp.model.NewTask;
 import com.example.todoApp.model.Task;
-import com.example.todoApp.service.TodoAppService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
@@ -23,7 +22,7 @@ import static org.mockito.Mockito.*;
 @ExtendWith(SpringExtension.class)
 public class TodoAppControllerUnitTest {
     @Mock
-    private TodoAppService appService;
+    private TodoAppControllerInterface appService;
 
     @InjectMocks
     private TodoAppController appController;
