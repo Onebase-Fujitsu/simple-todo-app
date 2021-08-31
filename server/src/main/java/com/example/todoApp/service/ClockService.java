@@ -4,12 +4,8 @@ import org.springframework.stereotype.Service;
 
 import java.time.Instant;
 
-public interface ClockService {
-    Instant now();
-}
-
 @Service
-class ClockServiceImpl implements ClockService{
+class ClockService implements ClockServiceInterface {
 
     @Override
     public Instant now() {

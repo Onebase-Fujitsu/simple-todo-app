@@ -2,6 +2,7 @@ package com.example.todoApp.repository;
 
 import com.example.todoApp.model.NewTask;
 import com.example.todoApp.model.Task;
+import com.example.todoApp.service.TodoAppServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -14,20 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public interface TodoAppRepository {
-    List<Task> getAllTasks();
-
-    void createNewTask(NewTask newTask, Instant now);
-
-    void finishTask(int taskId, Instant now);
-
-    void revertTask(int taskId, Instant now);
-
-    void deleteTask(int taskId, Instant now);
-}
-
 @Repository
-class TodoAppRepositoryImpl implements TodoAppRepository {
+class TodoAppRepository implements TodoAppServiceInterface {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
