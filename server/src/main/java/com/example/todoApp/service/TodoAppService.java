@@ -1,28 +1,20 @@
 package com.example.todoApp.service;
 
+import com.example.todoApp.controller.TodoAppControllerInterface;
 import com.example.todoApp.model.NewTask;
 import com.example.todoApp.model.Task;
-import com.example.todoApp.repository.TodoAppRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-public interface TodoAppService {
-    List<Task> getAllTasks();
-    void createNewTask(NewTask newTask);
-    void finishTask(int taskId);
-    void revertTask(int taskId);
-    void deleteTask(int taskId);
-}
-
 @Service
-class TodoAppServiceImpl implements TodoAppService {
+class TodoAppService implements TodoAppControllerInterface {
     @Autowired
-    TodoAppRepository todoAppRepository;
+    TodoAppServiceInterface todoAppRepository;
 
     @Autowired
-    ClockService clockService;
+    ClockServiceInterface clockService;
 
     @Override
     public List<Task> getAllTasks() {
