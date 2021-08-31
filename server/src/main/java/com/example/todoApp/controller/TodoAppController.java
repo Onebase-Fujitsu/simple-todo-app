@@ -2,7 +2,6 @@ package com.example.todoApp.controller;
 
 import com.example.todoApp.model.NewTask;
 import com.example.todoApp.model.Task;
-import com.example.todoApp.service.TodoAppService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -15,7 +14,7 @@ import java.util.List;
 @RestController
 public class TodoAppController {
     @Autowired
-    TodoAppService todoAppService;
+    TodoAppControllerInterface todoAppService;
 
     @GetMapping("/tasks")
     @ApiOperation(
