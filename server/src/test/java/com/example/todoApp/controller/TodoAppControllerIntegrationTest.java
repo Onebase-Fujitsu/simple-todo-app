@@ -1,8 +1,8 @@
 package com.example.todoApp.controller;
 
 import com.example.todoApp.model.Task;
-import com.example.todoApp.service.ClockService;
-import com.example.todoApp.repository.TodoAppRepository;
+import com.example.todoApp.service.ClockServiceInterface;
+import com.example.todoApp.service.TodoAppServiceInterface;
 import net.minidev.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
@@ -30,10 +30,10 @@ public class TodoAppControllerIntegrationTest {
     private TestRestTemplate restTemplate;
 
     @MockBean
-    private ClockService clockService;
+    private ClockServiceInterface clockService;
 
     @SpyBean
-    private TodoAppRepository todoAppRepository;
+    private TodoAppServiceInterface todoAppRepository;
 
     @BeforeEach
     public void setup() {
